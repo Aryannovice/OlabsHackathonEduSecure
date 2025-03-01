@@ -1,0 +1,193 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f9f9f9;
+    padding: 20px;
+    
+  }
+  
+  h1 {
+    font-size: 2.5rem;
+    color: #2c3e50;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  /* Accessibility Settings Section */
+  div {
+    margin-bottom: 20px;
+  }
+  
+  label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #34495e;
+  }
+  
+  select, textarea, input[type="file"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+    color: #333;
+    background-color: #fff;
+  }
+  
+  select:focus, textarea:focus, input[type="file"]:focus {
+    border-color: #3498db;
+    outline: none;
+    box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
+  }
+  
+  /* Buttons */
+  button {
+    padding: 10px 20px;
+    margin-right: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  button:hover {
+    opacity: 0.9;
+  }
+  
+  #askButton, #generateQuizBtn, #generateImageBtn {
+    background-color: #3498db;
+    color: #fff;
+  }
+  
+  #askButton:hover, #generateQuizBtn:hover, #generateImageBtn:hover {
+    background-color: #2980b9;
+  }
+  
+  #toggleRecordingBtn, #toggleSpeakBtn, #pauseSpeakBtn {
+    background-color: #27ae60;
+    color: #fff;
+  }
+  
+  #toggleRecordingBtn:hover, #toggleSpeakBtn:hover, #pauseSpeakBtn:hover {
+    background-color: #219653;
+  }
+  
+  #simplifyPromptBtn, #processFileBtn {
+    background-color: #e67e22;
+    color: #fff;
+  }
+  
+  #simplifyPromptBtn:hover, #processFileBtn:hover {
+    background-color: #d35400;
+  }
+  
+  /* AI Response and Image Prompt */
+  textarea[readonly] {
+    background-color: #f4f4f4;
+    cursor: not-allowed;
+  }
+  
+  #aiResponse, #imagePrompt {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.9rem;
+  }
+  
+  /* Image Container */
+  #imageContainer {
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  #imageContainer img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Quiz Container */
+  #quizContainer {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 20px;
+    margin-top: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  #quizContainer p {
+    margin-bottom: 10px;
+  }
+  
+  #quizContainer label {
+    display: block;
+    margin: 5px 0;
+    font-weight: normal;
+  }
+  
+  #quizContainer input[type="radio"] {
+    margin-right: 10px;
+  }
+  
+  /* Adaptive Quiz Button */
+  #quizContainer button {
+    margin-top: 10px;
+    background-color: #9b59b6;
+    color: #fff;
+  }
+  
+  #quizContainer button:hover {
+    background-color: #8e44ad;
+  }
+  
+  /* Accessibility Mode Adjustments */
+  body.visualImpaired {
+    background-color: #000;
+    color: #fff;
+  }
+  
+  body.visualImpaired h1, body.visualImpaired label {
+    color: #fff;
+  }
+  
+  body.visualImpaired select, body.visualImpaired textarea, body.visualImpaired input[type="file"] {
+    background-color: #333;
+    color: #fff;
+    border-color: #555;
+  }
+  
+  body.visualImpaired button {
+    background-color: #555;
+    color: #fff;
+  }
+  
+  body.visualImpaired button:hover {
+    background-color: #777;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    h1 {
+        font-size: 2rem;
+    }
+  
+    button {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+  
+    #quizContainer {
+        padding: 15px;
+    }
+  }
