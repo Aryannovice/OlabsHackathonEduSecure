@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Edusecure OLabs AI Chat</title>
+  <!-- ▼▼▼ REFERENCE EXTERNAL style.css ▼▼▼ -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Edusecure AI Olabs Chat</h1>
+
+  <!-- ▼▼▼ ADDED: Accessibility Settings ▼▼▼ -->
+  <div>
+    <label for="disabilitySelect">Select Your Learning Need:</label>
+    <select id="disabilitySelect">
+      <option value="">None</option>
+      <option value="downSyndrome">Down Syndrome</option>
+      <option value="dyslexia">Dyslexia</option>
+      <option value="hearingImpaired">Hearing Impaired</option>
+      <option value="visualImpaired">Visual Impaired</option>
+      <option value="adhd">ADHD</option>
+    </select>
+    <button id="applyAccessibilityBtn">Apply</button>
+  </div>
+  <!-- ▲▲▲ End of Added Accessibility Settings ▲▲▲ -->
+
+  <!-- User Input -->
+  <div>
+    <label for="userInput">Enter your question:</label>
+    <textarea id="userInput" rows="4" cols="50"></textarea>
+  </div>
+  
+  <!-- Buttons for AI Interaction -->
+  <div>
+    <button id="askButton">Ask AI</button>
+    <button id="toggleRecordingBtn">Start Recording</button>
+    <button id="toggleSpeakBtn">Start Speaking</button>
+    <!-- ▼▼▼ NEW: Pause/Resume TTS Button ▼▼▼ -->
+    <button id="pauseSpeakBtn">Pause Speech</button>
+  </div>
+
+  <!-- File Upload -->
+  <div>
+    <label for="fileInput">Upload a file:</label>
+    <input type="file" id="fileInput">
+    <button id="processFileBtn">Process File</button>
+  </div>
+
+  <!-- Language Selection -->
+  <div>
+    <label for="inputLang">Input Language (Speech Recognition):</label>
+    <select id="inputLang">
+      <!-- Existing + more Indian languages -->
+      <option value="auto">Auto Detect</option>
+      <option value="en">English</option>
+      <option value="hi">Hindi</option>
+      <option value="bn">Bengali</option>
+      <option value="ml">Malayalam</option>
+      <option value="ta">Tamil</option>
+      <option value="te">Telugu</option>
+      <option value="gu">Gujarati</option>
+      <option value="mr">Marathi</option>
+      <option value="kn">Kannada</option>
+      <option value="or">Odia</option>
+      <option value="pa">Punjabi</option>
+      <option value="as">Assamese</option>
+      <option value="ur">Urdu</option>
+      <option value="ma">Maithili</option>
+      <option value="sa">Sanskrit</option>
+      <option value="sd">Sindhi</option>
+      <option value="ks">Kashmiri</option>
+      <option value="mni">Manipuri</option>
+      <option value="ne">Nepali</option>
+      <option value="kok">Konkani</option>
+    </select>
+  </div>
+
+  <div>
+    <label for="outputLang">Output Language (Gemini + TTS):</label>
+    <select id="outputLang">
+      <!-- Existing + more Indian languages -->
+      <option value="en">English</option>
+      <option value="hi">Hindi</option>
+      <option value="bn">Bengali</option>
+      <option value="ml">Malayalam</option>
+      <option value="ta">Tamil</option>
+      <option value="te">Telugu</option>
+      <option value="gu">Gujarati</option>
+      <option value="mr">Marathi</option>
+      <option value="kn">Kannada</option>
+      <option value="or">Odia</option>
+      <option value="pa">Punjabi</option>
+      <option value="as">Assamese</option>
+      <option value="ur">Urdu</option>
+      <option value="ma">Maithili</option>
+      <option value="sa">Sanskrit</option>
+      <option value="sd">Sindhi</option>
+      <option value="ks">Kashmiri</option>
+      <option value="mni">Manipuri</option>
+      <option value="ne">Nepali</option>
+      <option value="kok">Konkani</option>
+    </select>
+  </div>
+
+  <!-- AI Response from Gemini -->
+  <div>
+    <label for="aiResponse">AI Response:</label>
+    <textarea id="aiResponse" rows="4" cols="50" readonly></textarea>
+  </div>
+
+  <!-- New: Simplified Prompt Box -->
+  <div>
+    <button id="simplifyPromptBtn">Simplify for Image</button>
+    <div>
+      <label for="imagePrompt">Simplified Prompt:</label>
+      <textarea id="imagePrompt" rows="2" cols="50" readonly></textarea>
+    </div>
+  </div>
+
+  <!-- Generate Image -->
+  <div>
+    <button id="generateImageBtn">Generate Image from Prompt</button>
+    <div id="imageContainer" style="margin-top: 10px;"></div>
+  </div>
+
+  <!-- ▼▼▼ ADDED: QUIZ GENERATION SECTION ▼▼▼ -->
+  <div>
+    <label for="quizLangSelect">Quiz Language:</label>
+    <select id="quizLangSelect">
+      <!-- Existing + more Indian languages -->
+      <option value="en">English</option>
+      <option value="hi">Hindi</option>
+      <option value="bn">Bengali</option>
+      <option value="ml">Malayalam</option>
+      <option value="ta">Tamil</option>
+      <option value="te">Telugu</option>
+      <option value="gu">Gujarati</option>
+      <option value="mr">Marathi</option>
+      <option value="kn">Kannada</option>
+      <option value="or">Odia</option>
+      <option value="pa">Punjabi</option>
+      <option value="as">Assamese</option>
+      <option value="ur">Urdu</option>
+      <option value="ma">Maithili</option>
+      <option value="sa">Sanskrit</option>
+      <option value="sd">Sindhi</option>
+      <option value="ks">Kashmiri</option>
+      <option value="mni">Manipuri</option>
+      <option value="ne">Nepali</option>
+      <option value="kok">Konkani</option>
+    </select>
+    <button id="generateQuizBtn">Generate Quiz</button>
+  </div>
+  <div id="quizContainer" style="margin-top:1em; border:1px solid #ccc; padding:1em;">
+    <!-- Quiz will appear here -->
+  </div>
+  <!-- ▲▲▲ End of Quiz Section ▲▲▲ -->
+
+  <!-- ▼▼▼ ADD FIREBASE LIBRARIES HERE ▼▼▼ -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+
+  <!-- Your existing script.js -->
+  <script src="script.js"></script>
+</body>
+</html>
